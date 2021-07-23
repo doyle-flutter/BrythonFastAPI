@@ -8,3 +8,7 @@ Brython + FastAPI
 <image width="50%" src="https://user-images.githubusercontent.com/56661529/126806941-26f329f1-8f09-4f2b-ac99-39ad5cd2d5e9.png" />
 
 [Run - Preview](https://youtu.be/diFa0oHzfgo)
+
+### 👋 Doc
+ - FastAPI : [https://fastapi.tiangolo.com/ko/](https://fastapi.tiangolo.com/ko/)
+ - Brython : [https://brython.info/](https://brython.info/)
