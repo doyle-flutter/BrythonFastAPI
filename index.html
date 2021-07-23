@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript"src="https://cdn.jsdelivr.net/npm/brython@3.9.5/brython.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/brython@3/brython_stdlib.js"></script>
+</head>
+<body onload="brython()" id="body">
+
+    <script type="text/python">
+    from browser import document, alert, html, timer
+
+    # @@@@@
+    # [Create - DOM & Node]
+    print(html)
+    print(document)
+    print(document['body'])
+    print(document.select("B#body"))
+
+    document['body'] <= html.H1("hi,JamesDev", id="contentTitle", class_name="contentTitleClass")
+    document['body'] <= html.A("youtube", href="https://www.youtube.com/")
+
+
+    # @@@@@ 
+    # [Read & Select] 
+    # document.select('.foo')       # elements with class "foo"
+    # document.select('form')       # list of tags "<form>"
+    # document.select('H1.bar')     # H1 tags with class "bar"
+    # document.select('#container') # the element with id "container", same as
+                                    # [document["container"]]
+    # document.select('a[title]')   # A tags with an attribute "title
+    
+    print( document.select('#contentTitle') )
+    print( document.select('#contentTitle')[0] )
+
+
+
+    # @@@@@ 
+    # [Update - DOM & Node]
+
+    title = "JAMES - Dev"
+    
+    document.select('#contentTitle')[0].text = title
+    
+    def addText():
+        document.select('#contentTitle')[0] <= "+ADD InnerTxt"
+
+    timer.set_timeout(addText, 3000)
+
+    contentTitle = document.select('#contentTitle')[0]
+    def showDialog(ev):
+        # ev.preventDefault()
+        alert("SHOW")
+    contentTitle.bind('click', showDialog)
+
+    def changetxt1(ev):
+        contentTitle.text = "mouse"
+    def changetxt2(ev):
+        contentTitle.text = title
+
+    contentTitle.bind('mouseenter', changetxt1)
+    contentTitle.bind('mouseleave', changetxt2)
+    
+    # @@@@@ 
+    # [Delete]
+    def clearAll():
+        contentTit  le.clear()
+    timer.set_timeout(clearAll, 10000)
+
+    </script>
+</body>
+</html>
